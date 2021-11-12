@@ -35,6 +35,8 @@ namespace MusicFillDB
       this.m_scMain = new System.Windows.Forms.SplitContainer();
       this.m_btnFillData = new System.Windows.Forms.Button();
       this.m_tbConsole = new System.Windows.Forms.TextBox();
+      this.m_lblCountText = new System.Windows.Forms.Label();
+      this.m_lblCount = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.m_scMain)).BeginInit();
       this.m_scMain.Panel1.SuspendLayout();
       this.m_scMain.Panel2.SuspendLayout();
@@ -90,6 +92,8 @@ namespace MusicFillDB
       // 
       // m_scMain.Panel1
       // 
+      this.m_scMain.Panel1.Controls.Add(this.m_lblCount);
+      this.m_scMain.Panel1.Controls.Add(this.m_lblCountText);
       this.m_scMain.Panel1.Controls.Add(this.m_btnFillData);
       this.m_scMain.Panel1.Controls.Add(this.label1);
       this.m_scMain.Panel1.Controls.Add(this.m_btnFolderSearch);
@@ -111,7 +115,7 @@ namespace MusicFillDB
             | System.Windows.Forms.AnchorStyles.Right)));
       this.m_btnFillData.Location = new System.Drawing.Point(13, 60);
       this.m_btnFillData.Name = "m_btnFillData";
-      this.m_btnFillData.Size = new System.Drawing.Size(759, 23);
+      this.m_btnFillData.Size = new System.Drawing.Size(402, 23);
       this.m_btnFillData.TabIndex = 3;
       this.m_btnFillData.Text = "Remplir la base de données";
       this.m_btnFillData.UseVisualStyleBackColor = true;
@@ -127,6 +131,23 @@ namespace MusicFillDB
       this.m_tbConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
       this.m_tbConsole.Size = new System.Drawing.Size(775, 327);
       this.m_tbConsole.TabIndex = 0;
+      // 
+      // m_lblCountText
+      // 
+      this.m_lblCountText.AutoSize = true;
+      this.m_lblCountText.Location = new System.Drawing.Point(421, 64);
+      this.m_lblCountText.Name = "m_lblCountText";
+      this.m_lblCountText.Size = new System.Drawing.Size(126, 15);
+      this.m_lblCountText.TabIndex = 4;
+      this.m_lblCountText.Text = "Nombre de doublons :";
+      // 
+      // m_lblCount
+      // 
+      this.m_lblCount.AutoSize = true;
+      this.m_lblCount.Location = new System.Drawing.Point(553, 64);
+      this.m_lblCount.Name = "m_lblCount";
+      this.m_lblCount.Size = new System.Drawing.Size(0, 15);
+      this.m_lblCount.TabIndex = 5;
       // 
       // Form1
       // 
@@ -156,6 +177,8 @@ namespace MusicFillDB
     private System.Windows.Forms.SplitContainer m_scMain;
     private System.Windows.Forms.Button m_btnFillData;
     private System.Windows.Forms.TextBox m_tbConsole;
+    private System.Windows.Forms.Label m_lblCount;
+    private System.Windows.Forms.Label m_lblCountText;
   }
 }
 

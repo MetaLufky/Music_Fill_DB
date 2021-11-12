@@ -16,14 +16,17 @@ namespace MusicFillDB
   public partial class Form1 : Form
   {
     private delegate void SafeFakeConsoleDelegate(string p_strPlaylist, string p_strMusicName, string p_strDateDl);
+    private delegate void SafeAddCountDuplicatesDelegate();
     private string m_strPlaylistPath;
     private Thread m_thFillData = null;
+    private int m_nDuplicateCount = 0;
 
     public Form1()
     {
       InitializeComponent();
 
       m_strPlaylistPath = m_tbFolderPath.Text;
+      m_lblCount.Text = m_nDuplicateCount.ToString();
     }
     private void m_btnFillData_Click(object sender, EventArgs e)
     {
@@ -113,6 +116,10 @@ namespace MusicFillDB
             InsertSqlQuery(query);
 
             l_nIDMusic = MusicIDRecord(l_strMusicName);
+          }
+          else
+          {
+            AddDuplicatesCount();
           }
 
           //ajoute à la playlist
@@ -352,6 +359,20 @@ namespace MusicFillDB
         m_tbConsole.SelectionStart = m_tbConsole.TextLength;
         m_tbConsole.ScrollToCaret();
       }
+    }
+    private void AddDuplicatesCount()
+    {
+      if (m_tbConsole.InvokeRequired)
+      {
+        SafeAddCountDuplicatesDelegate d = new SafeAddCountDuplicatesDelegate(AddDuplicatesCount);
+        m_tbConsole.Invoke(d);
+      }
+      else
+      {
+        m_nDuplicateCount++;
+        m_lblCount.Text = m_nDuplicateCount.ToString();
+      }
+      
     }
   }
 }
